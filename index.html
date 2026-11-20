@@ -4489,6 +4489,7 @@ window.__G=G;window.__openGame=openGame;window.__edT=()=>ED.on?edTime():-0.5;win
 
 show(0);loop();window.__ready=true;window.__enter=(k)=>{const d=document.querySelector(`[data-world="${k}"]`);enterWorld(k,d);};window.__show=show;window.__W=WORLD;
 $('loader').style.opacity=0;setTimeout(()=>$('loader').remove(),700);
+if(/[?&]game\b/.test(location.search))setTimeout(()=>{try{openGame();}catch(e){}},400);
 }
 if(!window.PLAYER)Promise.race([Promise.all([document.fonts.load('700 40px "Cormorant Garamond"'),document.fonts.load('italic 600 30px "Cormorant Garamond"'),document.fonts.load('600 16px "Manrope"'),document.fonts.load('italic 500 20px "Cormorant Garamond"')]),new Promise(r=>setTimeout(r,3000))]).catch(()=>{}).then(()=>{try{BOOT();}catch(e){document.getElementById('loader').textContent='Ошибка: '+e.message;console.error(e);}});
 </script>
